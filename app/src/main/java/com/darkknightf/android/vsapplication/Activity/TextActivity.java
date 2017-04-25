@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 
-public class TextActivity extends AppCompatActivity implements View.OnClickListener {
+public class TextActivity extends AppCompatActivity {
 
     private ImageView imgCart;
     private ViewGroup anim_mask_layout;
@@ -191,15 +191,12 @@ public class TextActivity extends AppCompatActivity implements View.OnClickListe
         v.startAnimation(set);
     }
 
-    @Override
-    public void onClick(View v) {
+    public void click(View v) {
         switch (v.getId()) {
             case R.id.bottom:
                 showBottomSheet();
                 break;
-            case R.id.clear:
-                clearCart();
-                break;
+
             case R.id.tvSubmit:
                 Intent intent = new Intent(TextActivity.this, ZhifuActivity.class);
                 startActivity(intent);
@@ -344,7 +341,12 @@ public class TextActivity extends AppCompatActivity implements View.OnClickListe
         rvSelected = (RecyclerView) view.findViewById(R.id.selectRecyclerView);
         rvSelected.setLayoutManager(new LinearLayoutManager(this));
         TextView clear = (TextView) view.findViewById(R.id.clear);
-        clear.setOnClickListener(this);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearCart();
+            }
+        });
         selectAdapter = new SelectAdapter(this,selectedList);
         rvSelected.setAdapter(selectAdapter);
         return view;

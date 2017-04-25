@@ -41,6 +41,13 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
         mInflater = LayoutInflater.from(mContext);
     }
 
+    /**
+     * 黏性标题
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getHeaderView(int position, View convertView, ViewGroup parent) {
         if(convertView==null) {
@@ -99,8 +106,8 @@ public class GoodsAdapter extends BaseAdapter implements StickyListHeadersAdapte
             name = (TextView) itemView.findViewById(R.id.tvName);
             price = (TextView) itemView.findViewById(R.id.tvPrice);
             tvCount = (TextView) itemView.findViewById(R.id.count);
-            tvMinus = (TextView) itemView.findViewById(R.id.tvMinus);
-            tvAdd = (TextView) itemView.findViewById(R.id.tvAdd);
+            tvMinus = (TextView) itemView.findViewById(R.id.tvMinus);//减一
+            tvAdd = (TextView) itemView.findViewById(R.id.tvAdd);//加一
             ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
             tvMinus.setOnClickListener(this);
             tvAdd.setOnClickListener(this);

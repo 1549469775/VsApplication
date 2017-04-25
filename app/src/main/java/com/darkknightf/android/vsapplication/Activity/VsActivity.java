@@ -68,7 +68,15 @@ public class VsActivity extends AppCompatActivity implements View.OnClickListene
 
             @Override
             public void onPageSelected(int position) {
-
+                switch (position){
+                    case 0:
+                        tvIndex.setSelected(true);
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                }
             }
 
             @Override

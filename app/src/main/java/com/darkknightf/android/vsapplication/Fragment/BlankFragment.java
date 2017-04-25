@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.darkknightf.android.vsapplication.adapter.ShangjiaAdapter;
 import com.darkknightf.android.vsapplication.R;
@@ -51,6 +52,12 @@ public class BlankFragment extends Fragment {
         simpleAdapter = new SimpleAdapter(getActivity(),grid_data,R.layout.grid_home,new String[]{"image","text"},
                 new int[]{R.id.ivGrid,R.id.tvGrid});
         gridView.setAdapter(simpleAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(),"dsds"+position,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         initListView();
         ShangjiaAdapter adapter = new ShangjiaAdapter(getActivity(),R.layout.list_food,shangjiaLists);
